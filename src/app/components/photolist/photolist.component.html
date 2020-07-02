@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+    <div class="card-deck">
+    <!-- No data message -->
+    <div class="alert alert-warning text-center" role="alert" *ngIf="Photos.length <= 0">
+        No Photos added yet!
+    </div>
+
+        <div class="row">
+        <div class="col-4" *ngFor="let photo of Photos | filter:term; let i = index">
+            <div class="card h-100" style="width: 100%">
+                <div class="card text-center">
+                    <h4 class="card-title">{{ photo.GalleryPhotoTitle }}</h4>
+                    <img [src]="photo.GalleryPhotoImageData" class="card-img-top" [alt]="photo.GalleryPhotoImageData">  
+                </div>
+
+                <div class="card-footer text-muted text-center">
+                   Description:
+                    <br>
+                    {{photo.GalleryPhotoDescription}}
+                    <br>
+                    Upload Date:
+                    <br>
+                    {{photo.GalleryPhotoDateCreated | jsondate | date:'dd-MM-yyyy hh:mm'}}
+
+                    <button (click)="deleteUser(photo._id)" class="btn btn-danger btn-block btn-lg">Delete</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</div>

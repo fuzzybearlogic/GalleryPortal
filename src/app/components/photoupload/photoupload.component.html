@@ -1,0 +1,32 @@
+
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="form">
+  <div class="container col-4" >
+    <div class="card h-100" style="width: 100%">
+    <!-- Image Preview -->
+    <div class="form-group">
+      <div class="preview" *ngIf="preview && preview !== null">
+        <img [src]="preview" [alt]="form.value.name" class="card-img-top">
+      </div>
+    </div>
+
+    <!-- File Input -->
+    <div class="form-group">
+      <input type="file" (change)="uploadFile($event)">
+    </div>
+  
+    <!-- Fields -->
+    <div class="form-group input-group-lg">
+      <input class="form-control" placeholder="Title" formControlName="Title">
+    </div>
+    <div class="form-group input-group-lg">
+      <input class="form-control" placeholder="Description" formControlName="Description">
+    </div>
+  
+    <!-- Submit -->
+    <div class="form-group">
+      <button class="btn btn-danger btn-block btn-lg">Upload Photo</button>
+    </div>
+  </div>
+  </div>
+  </form>
+

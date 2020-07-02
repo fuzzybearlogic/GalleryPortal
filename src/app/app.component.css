@@ -1,0 +1,11 @@
+.navbar{ background:#F97300;}
+
+.nav-link , .navbar-brand{ color:black; cursor: pointer;}
+
+.nav-link{ margin-right: 1em !important;}
+
+.nav-link:hover{ background: whitesmoke; color: #f97300; }
+
+.navbar-collapse{ justify-content: flex-end;}
+
+.navbar-toggler{  background:whitesmoke !important;}

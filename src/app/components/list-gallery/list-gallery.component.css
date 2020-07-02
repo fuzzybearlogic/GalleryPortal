@@ -1,0 +1,12 @@
+.alert alert-warning text-center{
+    padding-top: 2rem;
+    margin-top: 1rem;
+}
+.table {
+    padding-top: 2rem;
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-top: 1rem;
+}

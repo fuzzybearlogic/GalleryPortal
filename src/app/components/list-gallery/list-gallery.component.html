@@ -1,0 +1,30 @@
+<div class="alert alert-warning text-center" role="alert" *ngIf="galleries.length <= 0">
+    No Galleries added yet!
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Gallery Title</td>
+        <td>Gallery Description</td>
+        <td>Gallery Location</td>
+        <td>Creation Date</td>
+        <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let gallery of galleries | filter:term">
+            <td>{{ gallery.GalleryTitle }}</td>
+            <td>{{ gallery.GalleryDescription }}</td>
+            <td>{{ gallery.GalleryLocation }}</td>
+            <td>{{ gallery.GalleryDateCreated | jsondate | date:'dd-MM-yyyy hh:mm' }}</td>
+            <td><a [routerLink]="['/edit', gallery._id]" class="btn btn-outline-primary">Edit</a></td>
+            <td><button (click)="deleteGallery(gallery._id)" class="btn btn-outline-danger">Delete</button></td>
+            <td><button (click)="naviUpload(gallery._id)" class="btn btn-outline-info">Upload Photo</button></td>
+            <td><button (click)="naviGallery(gallery._id)" class="btn btn-outline-info">View Photos</button></td>
+        </tr>
+    </tbody>
+  </table>

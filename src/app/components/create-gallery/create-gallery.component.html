@@ -1,0 +1,44 @@
+<!-- product-add.component.html -->
+
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label class="col-md-4"> Gallery Title </label>
+          <input type="text" class="form-control" 
+            formControlName="GalleryTitle" />
+        </div>
+        <div *ngIf="angForm.controls['GalleryTitle'].invalid && (angForm.controls['GalleryTitle'].dirty || angForm.controls['GalleryTitle'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['GalleryTitle'].errors.required">
+            Gallery Title is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4"> Gallery Description </label>
+          <textarea class="form-control" rows = 7 cols = "5"
+          formControlName="GalleryDescription"></textarea>
+        </div>
+        <div *ngIf="angForm.controls['GalleryDescription'].invalid && (angForm.controls['GalleryDescription'].dirty || angForm.controls['GalleryDescription'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['GalleryDescription'].errors.required">
+            Gallery Description is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4"> Gallery Location </label>
+          <input type="text" class="form-control" 
+            formControlName="GalleryLocation"/>
+        </div>
+        <div *ngIf="angForm.controls['GalleryLocation'].invalid && (angForm.controls['GalleryLocation'].dirty || angForm.controls['GalleryLocation'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['GalleryLocation'].errors.required">
+           Gallery Location is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary"
+          [disabled]="angForm.pristine || angForm.invalid" >
+            Create Gallery
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
